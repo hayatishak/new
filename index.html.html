@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Rmeich Wartime Transportation Coordination</title>
+        <link rel="stylesheet" href="project.css">
+    </head>
+    <body class="B">
+        
+        <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>RMEISH.</p>
+                </div>
+                <div class="nav-menu">
+                <ul>
+                    <li><a href="RtoB.html" class="link active">B to R</a></li>
+                    <li><a href="BtoR.html" class="link">R to B</a></li>
+                    <li><a href="safety.html" class="link">Safety</a></li>
+                </ul>
+            
+            </div>
+            <div class="nav-button">
+                <button class="btn" id="registerBtn"><a href="donations.html"> Donations</a></button>
+            </div>
+          
+        </nav>
+    
+        <div class="form-box">
+            <div class="registration" id="register">
+                <div class="top">
+                    <span>MISSING YOUR FAMILY?</span>
+                   <header><u>Enter your information:</u></header>
+
+                </div>
+                <form id="registrationForm">
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" id="firstName" class="input-field" placeholder="FIRST NAME">
+                        <i class="bx bx-user"></i>
+                    </div>
+                        <div class="input-box">
+                            <input type="text" id="lastName" class="input-field" placeholder="LAST NAME">
+                            <i class="bx bx-user"></i>
+                        </div>
+                </div>
+                <div class="input-box"  >
+                    <input type="tel" id="phoneNumber" class="input-field" placeholder="Phone Number">
+                    <i class="bx bx-user"></i>
+                    </div>
+                    <br>
+                <div class="top" >
+                    <header><u>Transportation:</u></header>
+                    <div>
+                    <div class="car">
+                        
+                    <label>
+                      <input type="checkbox" class="radio" value="1" name="name" id="carCheckbox"/>Car </label>
+                      
+                    <label>
+                        
+                      <input type="checkbox" class="radio" value="1" name="name" id="busCheckbox" />Bus</label>
+                    </div>
+                    </div>
+                     
+                     
+            <div class="two-forms">
+                <div class="ct">
+                <span class="input-box">
+                    <input type="tel" class="input-field" id="carNumber" placeholder="Car Number">
+                    <i class="bx bx-user"></i>
+                
+                      <div class="input-box" id="busBox">
+                        <label>
+                            <div class="box">
+                        <select sise="1" id="bus" name="bus">
+                            <option value="tony l chakib">Toni El Chakib</option>
+                            <option value="paul l mor2os">Paul El Mor2os</option>
+                        </select>
+                            </div>
+                    </label>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="submit" class="submit" value="Register" id="submitBtn">
+            </div>
+            </form>
+        </div>
+        </div>
+        
+        <footer>
+            <div class="logo">
+                <nav >
+            <a href="https://www.instagram.com/livelovermaich?igsh=MTNucXNhNWllaTRhYQ==">
+            <i class="fa-brands fa-instagram"></i>
+            </a>
+            <span class="fb">
+            <a href="https://www.facebook.com/Livelovermeich?mibextid=ZbWKwL">
+            <i class="fa-brands fa-facebook"></i>
+            </a>
+            </span>
+            <span>
+                <i class="fa-brands fa-twitter"></i>
+            </span>
+                </nav>
+        </div>
+    </footer>
+       
+            
+    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+   
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var carNumberInput = document.getElementById('carNumber');
+            var busBox = document.getElementById('busBox');
+            var carCheckbox = document.getElementById('carCheckbox');
+            var busCheckbox = document.getElementById('busCheckbox');
+    
+            carNumberInput.style.display = 'none';
+            busBox.style.display = 'none';
+    
+            carCheckbox.addEventListener('change', function() {
+                if (carCheckbox.checked) {
+                    carNumberInput.style.display = 'block';
+                    busCheckbox.checked = false;
+                    busBox.style.display = 'none';
+                } else {
+                    carNumberInput.style.display = 'none';
+                }
+            });
+    
+            busCheckbox.addEventListener('change', function() {
+                if (busCheckbox.checked) {
+                    busBox.style.display = 'block';
+                    carCheckbox.checked = false;
+                    carNumberInput.style.display = 'none';
+                } else {
+                    busBox.style.display = 'none';
+                }
+            });
+    
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var firstName = document.getElementById('firstName').value;
+                var lastName = document.getElementById('lastName').value;
+                var phoneNumber = document.getElementById('phoneNumber').value;
+                var transportation = carCheckbox.checked ? 'Car' : (busCheckbox.checked ? 'Bus' : 'None');
+                var carNumber = carCheckbox.checked ? document.getElementById('carNumber').value : 'N/A';
+                var busSelection = busCheckbox.checked ? document.getElementById('bus').value : 'N/A';
+    
+                alert('Registration Details:\n' +
+                    'First Name: ' + firstName + '\n' +
+                    'Last Name: ' + lastName + '\n' +
+                    'Phone Number: ' + phoneNumber + '\n' +
+                    'Transportation: ' + transportation + '\n' +
+                    'Car Number: ' + carNumber + '\n' +
+                    'Bus Selection: ' + busSelection);
+    
+                document.body.innerHTML += '<p>Registration Successful!</p>';
+            });
+        });
+    </script>
+
+    </body>
+</html>
